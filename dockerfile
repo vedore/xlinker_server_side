@@ -3,7 +3,7 @@ FROM python:3.12-slim-bullseye
 WORKDIR /x_linker
 
 # Copy all files from the current folder to the container's workdir
-COPY . /x_linker
+# COPY . /x_linker
 # COPY requirements.txt /x_linker
 
 # Update apt and install bash
