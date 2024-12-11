@@ -157,6 +157,8 @@ logging.info(f"Parse train file: {train_filepath}")
 Y_train = [str(parsed) for parsed in parsed_train_data["labels_data"]]
 X_train = [str(parsed) for parsed in parsed_train_data["corpus"]]
 
+print('Tamanho X_train', len(X_train))
+
 # Use training label frequency scores as costs -> build relevance matrix
 # R_train = copy.deepcopy(Y_train)
 
@@ -185,6 +187,10 @@ vectorizer_config = {
 vectorizer = TfidfVectorizer.train(X_train)
 
 X_train_feat = vectorizer.predict(X_train)
+
+print(X_train_feat.shape)
+
+exit()
 
 del vectorizer
 
@@ -234,7 +240,7 @@ logging.info(f"Building cluster chain with method {args.clustering}")
 """
 
 # Joao Vedor 
-cluster_labels = cluster_labels_from_clustering(X_train_feat, True)
+cluster_labels = cluster_labels_from_clustering(X_train_feat.astype(np.float32), True)
 
 # ------------------------------------------------------------
 # Train XR-Transformer model
