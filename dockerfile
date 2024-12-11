@@ -4,7 +4,7 @@ WORKDIR /x_linker
 
 # Copy all files from the current folder to the container's workdir
 # COPY . /x_linker
-# COPY requirements.txt /x_linker
+COPY requirements.txt /x_linker
 
 # Update apt and install bash
 RUN apt-get update && apt-get install -y bash python3-venv && apt-get clean
