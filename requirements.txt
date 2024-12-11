@@ -1,0 +1,17 @@
+# libpecos==1.0.0
+# transformers==4.15.0
+# torch==1.10.0
+# bconv==1.2.1
+# obonet
+# rapidfuzz==3.3.0
+# scipy
+# pandas
+# numpy==1.26.3
+
+#Optional: install wandb to monitor model training
+# wandb
+
+scikit-learn==1.6.0
+pandas==2.2.3
+nltk==3.9.1
+pyarrow==18.1.0
