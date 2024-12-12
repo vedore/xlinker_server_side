@@ -16,6 +16,10 @@ from src.python.utils import (
 import src.python.xlinker.ppr as ppr
 from tqdm import tqdm
 
+from src.joao_project.src.featurization.vectorizer import TfidfVectorizer
+from src.joao_project.src.machine_learning.clustering import Clustering
+from src.joao_project.src.app.utils import metrics_from_trainning
+
 # Parse arguments
 parser = ArgumentParser()
 parser.add_argument("-dataset", type=str, required=True)
@@ -40,6 +44,9 @@ args = parser.parse_args()
     custom_xtf, tfidf_model, cluster_chain = load_model(args.model_dir, args.clustering)
     print("model loaded!")
 """
+
+tfdif_model = TfidfVectorizer.load("data")
+cluster_model = Clustering.load("data")
 
 # ----------------------------------------------------------------------------
 # Load KB info
@@ -73,19 +80,29 @@ with open(test_path, "r") as f:
 test_input, test_annots = prepare_input(test_annots_raw, abbreviations, id_2_name)
 print("Test instances loaded!")
 
-
-print(test_input)
-
-exit()
-
 # ----------------------------------------------------------------------------
 # Apply model to test instances
 # ----------------------------------------------------------------------------
+"""
 x_linker_preds = custom_xtf.predict(
     test_input, X_feat=tfidf_model.predict(test_input), only_topk=args.top_k
 )
 print("Linking test instances...")
+"""
 
+print("Embeddings")
+embeddings = tfdif_model.predict(test_input)
+del tfdif_model
+print("Clustering")
+labels = cluster_model.fit(embeddings)
+del cluster_model
+
+print("Trainning")
+metrics_from_trainning(embeddings, labels)
+
+
+
+"""
 output = []
 pbar = tqdm(total=len(test_annots))
 
@@ -152,3 +169,4 @@ else:
     topK_list = [list(topk_accuracies.values())]
     df = pd.DataFrame(topK_list)
     df.to_csv("data.tsv", sep="\t", index=False)
+"""

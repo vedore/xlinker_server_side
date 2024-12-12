@@ -186,7 +186,7 @@ vectorizer_config = {
 }
 
 vectorizer = TfidfVectorizer.train(X_train)
-
+vectorizer.save("data")
 X_train_feat = vectorizer.predict(X_train)
 
 print(X_train_feat.shape)

@@ -12,6 +12,9 @@ class Clustering():
         os.makedirs(clustering_folder, exist_ok=True)
         with open(os.path.join(clustering_folder, 'clustering.pkl'), 'wb') as fout:
             pickle.dump({'model': self.model, 'model_type': self.model_type}, fout)
+
+    def fit(self, corpus):
+        return self.model.fit(corpus).labels_
     
     @classmethod
     def load(cls, clustering_folder):
