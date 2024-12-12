@@ -2,7 +2,7 @@ from src.joao_project.src.extractor.knowledge_base import KnowledgeBase, Knowled
 from src.joao_project.src.featurization.preprocessor import Preprocessor
 from src.joao_project.src.featurization.vectorizer import TfidfVectorizer
 from src.joao_project.src.machine_learning.clustering import Clustering
-from src.joao_project.src.machine_learning.cpu.ml import AgglomerativeClusteringCPU
+from src.joao_project.src.machine_learning.cpu.ml import AgglomerativeClusteringCPU, BirchCPU, KMeansCPU
 from src.joao_project.src.trainning.cpu.train import TrainCPU
 
 
@@ -97,7 +97,7 @@ def cluster_labels_from_clustering(embeddings, erase):
             erase = True
 
     if erase:
-        model = AgglomerativeClusteringCPU.train(embeddings.toarray())
+        model = BirchCPU.train(embeddings.toarray())
         model.save(clustering_path)
         model.save_labels(clustering_path)
         print("Saved Cluster Labels")

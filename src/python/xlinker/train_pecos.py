@@ -5,6 +5,7 @@ import json
 import os
 import logging
 from logging.handlers import RotatingFileHandler
+import numpy as np
 
 # import wandb
 # from pecos.utils.featurization.text.preprocess import Preprocessor
@@ -190,7 +191,7 @@ X_train_feat = vectorizer.predict(X_train)
 
 print(X_train_feat.shape)
 
-exit()
+# exit()
 
 del vectorizer
 
@@ -238,6 +239,8 @@ logging.info(f"Building cluster chain with method {args.clustering}")
         Z_filepath=Z_filepath,
     )
 """
+
+# print(type(X_train_feat.astype(np.float32)))
 
 # Joao Vedor 
 cluster_labels = cluster_labels_from_clustering(X_train_feat.astype(np.float32), True)
