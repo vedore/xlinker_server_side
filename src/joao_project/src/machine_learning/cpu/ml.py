@@ -66,8 +66,8 @@ class BirchCPU():
     @classmethod
     def train(cls, X_train):
         defaults = {
-            'threshold': 0.5,
-            'branching_factor': 16,
+            'threshold': 1,
+            'branching_factor': 50,
             'n_clusters': 16,
             'compute_labels': True,
         }
