@@ -97,7 +97,7 @@ def cluster_labels_from_clustering(embeddings, erase):
             erase = True
 
     if erase:
-        model = BirchCPU.train(embeddings.toarray())
+        model = BirchCPU.train(embeddings)
         model.save(clustering_path)
         model.save_labels(clustering_path)
         print("Saved Cluster Labels")
