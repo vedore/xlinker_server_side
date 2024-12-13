@@ -271,6 +271,8 @@ logging.info("Training model")
     )
 """
 
+print(cluster_labels)
+
 metrics_from_trainning(X_train_feat, cluster_labels)
 
 logging.info("Training completed!")
