@@ -40,7 +40,7 @@ class LogisticRegressionCPU(Regression):
         model.fit(X_train, y_train)
         return cls(model=model, model_type='LogisticRegressionCPU')
     
-class KMeansCPU():
+class KMeansCPU(Clustering):
 
     @classmethod
     def train(cls, X_train):
