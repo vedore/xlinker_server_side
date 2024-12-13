@@ -86,7 +86,7 @@ def embedddings_from_preprocessor(processed_labels, erase):
 def cluster_labels_from_clustering(embeddings, erase):
     print("Getting Clustering Labels From Clustering")
     # clustering_path = "data/processed/clustering"
-    clustering_path = ""
+    clustering_path = "data"
 
     if not erase:
         try:
