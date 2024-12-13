@@ -61,7 +61,7 @@ class KMeansCPU():
     def get_labels(self):
         return self.model.labels_
     
-class BirchCPU(Regression):
+class BirchCPU(Clustering):
 
     @classmethod
     def train(cls, X_train):

@@ -91,6 +91,7 @@ def cluster_labels_from_clustering(embeddings, erase):
     if not erase:
         try:
             model = Clustering.load(clustering_path)
+            model.model.save_labels(clustering_path)
             print(f"Loaded Clustering Model, Type: {model.model_type}\n")
         except Exception as e:
             print(f"Could not load Clustering Model ({e}). Creating a new one.")

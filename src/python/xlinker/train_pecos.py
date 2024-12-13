@@ -238,12 +238,12 @@ logging.info(f"Building cluster chain with method {args.clustering}")
         cluster_chain_filepath=cluster_chain_filepath,
         Z_filepath=Z_filepath,
     )
-"""
+""" 
 
 # print(type(X_train_feat.astype(np.float32)))
 
 # Joao Vedor 
-cluster_labels = cluster_labels_from_clustering(X_train_feat.astype(np.float32), True)
+cluster_labels = cluster_labels_from_clustering(X_train_feat.astype(np.float32), False)
 
 # ------------------------------------------------------------
 # Train XR-Transformer model
