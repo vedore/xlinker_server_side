@@ -27,7 +27,7 @@ class Clustering():
     def save_labels(self, clustering_folder):
         os.makedirs(clustering_folder, exist_ok=True)
 
-        if self.model_type == 'HierarchicalCPU' or self.model_type == 'BirchCPU' or self.model_type == '':
+        if self.model_type == 'HierarchicalCPU' or self.model_type == 'BirchCPU' or self.model_type == 'KMeansCPU':
             labels = self.model.labels_
         elif self.model_type == 'HierarchicalGPU':
             labels = self.model.labels_.to_numpy()
