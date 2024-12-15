@@ -8,6 +8,7 @@ class TrainCPU():
 
     @classmethod
     def train(cls, embeddings, clustering_labels):
+        # Doing These Comments To Evaluate From XLINKER
         X_train, X_test, y_train, y_test = train_test_split(
             embeddings, 
             # clustering_labels['Labels'], 
@@ -16,7 +17,7 @@ class TrainCPU():
             random_state=42
             )
         
-        y_train = y_train.to_numpy()
+        # y_train = y_train.to_numpy()
         model = LogisticRegressionCPU.train(X_train, y_train).model
         # cls.save(model, "data/processed/regression")
 
