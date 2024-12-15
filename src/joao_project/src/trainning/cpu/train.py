@@ -10,7 +10,8 @@ class TrainCPU():
     def train(cls, embeddings, clustering_labels):
         X_train, X_test, y_train, y_test = train_test_split(
             embeddings, 
-            clustering_labels['Labels'], 
+            # clustering_labels['Labels'], 
+            clustering_labels,
             test_size=0.2, 
             random_state=42
             )
