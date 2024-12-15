@@ -97,6 +97,9 @@ print("Clustering")
 labels = cluster_model.fit(embeddings)
 del cluster_model
 
+
+print(labels)
+
 print("Trainning")
 metrics_from_trainning(embeddings, labels)
 
